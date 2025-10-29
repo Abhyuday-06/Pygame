@@ -7,12 +7,12 @@ pygame.init()
 
 screen = pygame.display.set_mode((800, 600))
 pygame.display.set_caption("My first game!!!")
-icon = pygame.image.load(r'D:\Programming\Pygame\Space_Invader\Game_data\iron-man.png')
+icon = pygame.image.load(r'Game_data\iron-man.png')
 pygame.display.set_icon(icon)
 
-background = pygame.image.load(r'D:\Programming\Pygame\Space_Invader\Game_data\wY16ag.jpg')
+background = pygame.image.load(r'Game_data\wY16ag.jpg')
 
-playerImg = pygame.image.load(r'D:\Programming\Pygame\Space_Invader\Game_data\space-invaders.png')
+playerImg = pygame.image.load(r'Game_data\space-invaders.png')
 playerX = 370
 playerY = 480
 playerX_change = 0
@@ -25,13 +25,13 @@ enemyY_change = []
 no_of_enemies = 6
 
 for i in range(no_of_enemies):
-    enemyImg.append(pygame.image.load(r"D:\Programming\Pygame\Space_Invader\Game_data\monster.png"))
+    enemyImg.append(pygame.image.load(r"Game_data\monster.png"))
     enemyX.append(random.randint(0, 735))
     enemyY.append(random.randint(50, 150))
     enemyX_change.append(4)
     enemyY_change.append(40)
 
-bulletImg = pygame.image.load(r"D:\Programming\Pygame\Space_Invader\Game_data\bullet.png")
+bulletImg = pygame.image.load(r"Game_data\bullet.png")
 bulletX = 0
 bulletY = 480
 bulletX_change = 0
@@ -94,7 +94,7 @@ while running:
                 playerX_change = 2
             if event.key == pygame.K_SPACE:
                 if bullet_state is "ready":
-                    bullet_sound = mixer.Sound(r'D:\Programming\Pygame\Space_Invader\Game_data\laser.wav')
+                    bullet_sound = mixer.Sound(r'Game_data\laser.wav')
                     bullet_sound.play()
                     bulletX = playerX
                     fire_bullet(bulletX, bulletY)
@@ -126,7 +126,7 @@ while running:
 
         collision = isCollision(enemyX[i], enemyY[i], bulletX, bulletY)
         if collision:
-            explode_sound = mixer.Sound(r'D:\Programming\Pygame\Space_Invader\Game_data\explosion.wav')
+            explode_sound = mixer.Sound(r'Game_data\explosion.wav')
             explode_sound.play()
             bulletY = 480
             bullet_state = "ready"
